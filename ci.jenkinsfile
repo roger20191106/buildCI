@@ -5,10 +5,7 @@ pipeline{
     stage("build"){
       steps{
         script{
-          mvnHome = tool "m2"
-          println(mvnHome)
-          println("This is test")
-          println("$mvnHome")         
+          mvnHome = tool "m2"       
           bat "$mvnHome\\bin\\mvn -v"
         }
       }

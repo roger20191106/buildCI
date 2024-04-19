@@ -1,17 +1,37 @@
 #!groovy
 
+@Library('jenkinslibrary@master')
+
+def build = new.org.devops.build()
+def deploy = new.org.devops.deploy()
+
+String buildType = "$env.buildTyoe"
 String buildShell = "$env.buildShell"
+String deployHosts = "$env.deployHosts"
+
+String srcUrl = "$env.srcUrl"
+String branchName = "$env.branchName"
 
 pipeline{
   agent { node { label "master"}}
 
   stages{
-    stage("build"){
+    stage("CheckOut"){
+      sgeps{
+        script{
+          checkout scmGit(branches: [[name: "$branchName"]], extensions: [], userRemoteConfigs: [[credentialsId: 'GitlabRoger', url: "$srcUrl"]])
+        }
+      }      
+    }
+
+  stage("Build"){
       steps{
         script{
           mvnHome = tool "m2"       
           println(buildShell)
           bat "$mvnHome\\bin\\mvn $buildShell"
+          build.Buil(buildType,buildShell)
+          
         }
       }
     }

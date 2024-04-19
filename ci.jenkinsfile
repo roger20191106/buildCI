@@ -1,9 +1,11 @@
 #!groovy
 
-@Library('jenkinslibrary') _
+@Library('jenkinslibrary@master') _
 
+//func from sharelibrary
 def build = new org.devops.build()
 def deploy = new org.devops.deploy()
+
 
 String buildType = "$env.buildType"
 String buildShell = "$env.buildShell"

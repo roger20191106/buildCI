@@ -11,7 +11,7 @@ pipeline{
         script{
           mvnHome = tool "m2"       
           println(buildShell)
-          bat "$mvnHome\\bin\\mvn -v"
+          bat "$mvnHome\\bin\\mvn $buildShell"
         }
       }
     }

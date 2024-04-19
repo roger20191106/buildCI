@@ -17,7 +17,7 @@ pipeline{
 
   stages{
     stage("CheckOut"){
-      sgeps{
+      steps{
         script{
           checkout scmGit(branches: [[name: "$branchName"]], extensions: [], userRemoteConfigs: [[credentialsId: 'GitlabRoger', url: "$srcUrl"]])
         }

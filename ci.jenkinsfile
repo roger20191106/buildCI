@@ -8,8 +8,8 @@ pipeline{
           mvnHome = tool "m2"
           println(mvnHome)
           println("This is test")
-          println("${mvnHome}")
-/*          bat "${mvnHome/bin/mvn -v}"
+          println("$mvnHome")         
+          bat "$mvnHome\\bin\\mvn -v"
 */
         }
       }

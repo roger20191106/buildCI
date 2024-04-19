@@ -10,7 +10,6 @@ pipeline{
           println("This is test")
           println("$mvnHome")         
           bat "$mvnHome\\bin\\mvn -v"
-*/
         }
       }
     }

@@ -30,7 +30,7 @@ pipeline{
           mvnHome = tool "m2"       
           println(buildShell)
 /*          bat "$mvnHome\\bin\\mvn $buildShell" */
-          build.Build(buildType,buildShell)
+/*          build.Build(buildType,buildShell) */
           
         }
       }

@@ -6,7 +6,7 @@ pipeline{
       steps{
         script{
           mvnHome = tool "m2"
-          bat "${envHome/bin/mvn -v}"
+          bat "${mvnHome/bin/mvn -v}"
         }
       }
     }

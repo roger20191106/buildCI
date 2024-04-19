@@ -28,7 +28,8 @@ pipeline{
       steps{
         script{
           mvnHome = tool "m2"       
-          println(buildShell)
+          println("buildShell=$buildShell")
+          println("buildType=$buildType")
 /*          bat "$mvnHome\\bin\\mvn $buildShell" */
 /*          build.Build(buildType,buildShell) */
           

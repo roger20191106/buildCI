@@ -5,7 +5,7 @@
 def build = new org.devops.build()
 def deploy = new org.devops.deploy()
 
-String buildType = "$env.buildTyoe"
+String buildType = "$env.buildType"
 String buildShell = "$env.buildShell"
 String deployHosts = "$env.deployHosts"
 

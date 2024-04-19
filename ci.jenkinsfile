@@ -7,7 +7,7 @@ pipeline{
         script{
           mvnHome = tool "m2"
           println(mvnHome)
-          printlin("${mvnHome/bin/mvn -v}")
+          println("${mvnHome/bin/mvn -v}")
 /*          bat "${mvnHome/bin/mvn -v}"
 */
         }

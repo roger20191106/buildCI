@@ -29,8 +29,8 @@ pipeline{
         script{
           mvnHome = tool "m2"       
           println(buildShell)
-          bat "$mvnHome\\bin\\mvn $buildShell"
-          build.Buil(buildType,buildShell)
+/*          bat "$mvnHome\\bin\\mvn $buildShell" */
+          build.Build(buildType,buildShell)
           
         }
       }

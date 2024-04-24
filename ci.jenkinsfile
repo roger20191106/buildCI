@@ -45,7 +45,10 @@ pipeline{
     steps{
       script{
         tools.PrintMes("代码扫描","green")
-        sonar.SonarScan("${JOB_NAME}","${JOB_NAME}","src")
+        tools.PrintMes("${JOB_NAME}","green")    
+        def sonarServer = "http://localhost:9001"
+        def branchName = "main"
+        sonar.SonarScan(sonarServer,"${JOB_NAME}","${JOB_NAME}","src",branchName)
       }
     }
   }

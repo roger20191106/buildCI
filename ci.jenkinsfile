@@ -48,7 +48,7 @@ pipeline{
         tools.PrintMes("${JOB_NAME}","green")    
 //        String sonarServer = "http://localhost:9001"
         
-        sonar.SonarScan("test","${JOB_NAME}","${JOB_NAME}","src",branchName)
+        sonar.SonarScan("test","${JOB_NAME}","${JOB_NAME}","src","$branchName")
       }
     }
   }

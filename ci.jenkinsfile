@@ -37,7 +37,7 @@ pipeline{
           println("buildType=$buildType")
 /*          bat "$mvnHome\\bin\\mvn $buildShell" */
             tools.PrintMes("构建打包","green")
-            build.Build(buildType,buildShell          
+            build.Build(buildType,buildShell)          
         }
       }
     }

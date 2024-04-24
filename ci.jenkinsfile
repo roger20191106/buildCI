@@ -54,6 +54,8 @@ pipeline{
         println(result)
         if (result.toString().contains("ERROR")){
           error "代码质量错误，请即时修复！"
+        } else {
+          tools.PrintMes("代码质量正常","green")
         }
 
       }

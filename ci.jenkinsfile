@@ -40,7 +40,8 @@ pipeline{
             tools.PrintMes("构建打包","green")
             build.Build(buildType,buildShell)    
           //上传制品
-          def jarName = bat returnStdout: true, script: "cd target;dir *.jar"
+          bat "cd target"
+          def jarName = bat returnStdout: true, script: "dir *.jar"
           jarName = jarName - "\n"
           def pom = readMavenPom file: 'pom.xml'
           pomVersion = "${pom.version}"

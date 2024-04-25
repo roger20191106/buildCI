@@ -41,8 +41,6 @@ pipeline{
            // build.Build(buildType,buildShell)    
           //上传制品
          
-          bat 'cd ./target'
-          bat 'pwd'
           def jarName = bat returnStdout: true, script: 'cd ./target \n dir *.jar'
           jarName = jarName - "\n"
           println("jarName=$jarName")

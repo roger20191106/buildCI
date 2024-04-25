@@ -43,13 +43,14 @@ pipeline{
           //bat script: "cd target/"
           def jarName = bat returnStdout: true, script: "dir .\\target\\*.jar"
           jarName = jarName - "\n"
+          println("jarName=$jarName")
           def pom = readMavenPom file: 'pom.xml'
           pomVersion = "${pom.version}"
           pomArtifact = "${pom.artifactId}"
           pomPackaging = "${pom.packaging}"
           pomGroupId = "${pom.groupId}"
           
-          println("${pomGroupId}-${pomArtifact}-${pomVersion} -${pomPackaging}")
+          println("${pomGroupId}-${pomArtifact}-${pomVersion}-${pomPackaging}")
           
           bat """
           	cd target/

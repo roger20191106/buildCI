@@ -42,7 +42,8 @@ pipeline{
           //上传制品
          
           def jarName = bat returnStdout: true, script: 'cd ./target \n dir *.jar'
-          jarName = jarName - "\n"
+          //jarName = jarName - "\n"
+          jarName = "my-app-1.0-SNAPSHOT.jar"
           println("jarName=$jarName")
           def pom = readMavenPom file: 'pom.xml'
           pomVersion = "${pom.version}"

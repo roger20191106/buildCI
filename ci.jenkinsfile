@@ -43,7 +43,7 @@ pipeline{
           def jarName = bat returnStdout: true, script: "cd target;ls *.jar"
           jarName = jarName - "\n"
           def pom = readMavenPom file: 'pom.xml'
-          pomVersion = “${ipom.version}"
+          pomVersion = "${pom.version}"
           pomArtifact = "${pom.artifactId}"
           pomPackaging = "$(pom.packoging}"
           pomGroupId = "${pom.groupId}"

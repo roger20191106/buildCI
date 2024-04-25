@@ -45,7 +45,7 @@ pipeline{
           def pom = readMavenPom file: 'pom.xml'
           pomVersion = "${pom.version}"
           pomArtifact = "${pom.artifactId}"
-          pomPackaging = "$(pom.packoging}"
+          pomPackaging = "${pom.packaging}"
           pomGroupId = "${pom.groupId}"
           
           println("${pomGroupId}-${pomArtifact}-${pomVersion) -${pomPackaging}")

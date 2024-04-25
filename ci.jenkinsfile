@@ -40,7 +40,7 @@ pipeline{
             tools.PrintMes("构建打包","green")
            // build.Build(buildType,buildShell)    
           //上传制品
-          bat 'cd target'
+          bat 'cd ./target'
           def jarName = bat returnStdout: true, script: 'dir *.*'
           jarName = jarName - "\n"
           println("jarName=$jarName")

@@ -51,9 +51,14 @@ pipeline{
           pomGroupId = "${pom.groupId}"
           
           println("${pomGroupId}-${pomArtifact}-${pomVersion}-${pomPackaging}")
-          
+          println("""S{mvrHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true \
+          		-Dfile=${fjarName} -DgroupId=${pomGroupId} \
+          		-DartifactId=${pomArtifact} -Dversion=${pomVersion} \
+          		-Dpackaging=${pomPackaging} -DrepositoryId=maven-releases \
+          		-Durl=http://localhost:8081/repository/maven-releases
+          	""")
           bat """
-          	cd target/
+          	cd ./target \n
           	S{mvrHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true \
           		-Dfile=${fjarName} -DgroupId=${pomGroupId} \
           		-DartifactId=${pomArtifact} -Dversion=${pomVersion} \

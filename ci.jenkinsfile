@@ -41,7 +41,7 @@ pipeline{
            // build.Build(buildType,buildShell)    
           //上传制品
           //bat script: "cd target/"
-          def jarName = bat returnStdout: true, script: "dir .\\target\*.jar"
+          def jarName = bat returnStdout: true, script: "dir .\\target\\*.jar"
           jarName = jarName - "\n"
           def pom = readMavenPom file: 'pom.xml'
           pomVersion = "${pom.version}"

@@ -48,7 +48,7 @@ pipeline{
           pomPackaging = "${pom.packaging}"
           pomGroupId = "${pom.groupId}"
           
-          println("${pomGroupId}-${pomArtifact}-${pomVersion) -${pomPackaging}")
+          println("${pomGroupId}-${pomArtifact}-${pomVersion} -${pomPackaging}")
           
           bat """
           	cd target/

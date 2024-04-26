@@ -52,8 +52,8 @@ pipeline{
           pomGroupId = "${pom.groupId}"
           
           println("${pomGroupId}-${pomArtifact}-${pomVersion}-${pomPackaging}")
-          println("${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-releases")
-          bat "cd ./target \n ${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-releases"
+          println("${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots")
+          bat "cd ./target \n ${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots"
         }
       }
     }

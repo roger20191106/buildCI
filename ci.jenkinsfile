@@ -53,7 +53,19 @@ pipeline{
           
           println("GroupId:${pomGroupId}-ArtifactId:${pomArtifact}-Version:${pomVersion}-Packaging:${pomPackaging}")
           println("${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots")
-          bat "cd ./target \n ${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots"
+          //bat "cd ./target \n ${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots"
+
+          //use nexus plugin
+          def repoName = "maven-snapshots"
+          def filePath = "target/${jarName}"
+          nexusArtifactUploader artifacts:[[artifactId: "${pomArtifact}",classifier: '',file: "${filePath}",type: "${pomPackaging}"]],
+        					credentialsId:"nexus-admin",
+        					groupId:"${pomGroupId}",
+        					nexusUrl:"localhost:8081",
+        					nexusVersion:'nexus3',
+        					protocol: "http",
+        					repository:"${repoName}",
+        					version:"${pomVersion}"
         }
       }
     }

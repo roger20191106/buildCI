@@ -51,7 +51,7 @@ pipeline{
           pomPackaging = "${pom.packaging}"
           pomGroupId = "${pom.groupId}"
           
-          println("${pomGroupId}-${pomArtifact}-${pomVersion}-${pomPackaging}")
+          println("GroupId:${pomGroupId}-ArtifactId:${pomArtifact}-Version:${pomVersion}-Packaging:${pomPackaging}")
           println("${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots")
           bat "cd ./target \n ${mvnHome}/bin/mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=${jarName} -DgroupId=${pomGroupId} -DartifactId=${pomArtifact} -Dversion=${pomVersion} -Dpackaging=${pomPackaging} -DrepositoryId=maven-snapshots -Durl=http://localhost:8081/repository/maven-snapshots"
         }
